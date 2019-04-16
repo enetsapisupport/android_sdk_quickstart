@@ -1,23 +1,23 @@
 # ENETS SDK Android Quickstart
 
-## This is a sample project to demonstrate how to use the ENETS SDK to make a payment.
+### This is a sample project to demonstrate how to use the ENETS SDK to make a payment.
 
 See the ENETS Merchant Integration Guide at the [ENETS Developer Portal](https://api-developer.nets.com.sg) for full integration details, as well as to download the UAT and Production versions of the SDK.  
 
 **Note:** If you want to receive the response from the ENETS backend, you need to replace the Dummy URLs in ther Txn Request with your own urls.
 
-## Common Questions
+### Common Questions
 **Q: What permissions do I need to include in my manifest to enable the SDK to function properly?**  
 *A: You should not need to declare any permissions. During the build process, the permissions declared in the AAR manifest should be merged into the Merged Manifest automatically. If you would like to declare them anyway for clarity or other purposes, they are:*  
 - *`android.permission.INTERNET`*  
-- *`android.permission.READ_PHONE_STATE`*
-- *`android.permission.ACCESS_NETWORK_STATE`*
+- *`android.permission.READ_PHONE_STATE`*  
+- *`android.permission.ACCESS_NETWORK_STATE`*  
 
 **Q: Do i need to declare any dependencies in my gradle file?**  
 *A: Most likely, you will already be using these dependencies, but ensure that the following **3** support library modules are declared.*  
-- *`'com.android.support:appcompat-v7:28.0.0'`*
-- *`'com.android.support.constraint:constraint-layout:1.1.3'`*
-- *`'com.android.support:design:28.0.0'`*
+- *`'com.android.support:appcompat-v7:28.0.0'`*  
+- *`'com.android.support.constraint:constraint-layout:1.1.3'`*  
+- *`'com.android.support:design:28.0.0'`*  
 
 **Q: Why am I encountering errors with the dexer when building my project/syncing gradle?**  
 *A: Our SDK bundles some 3rd party libraries inside as jars. If your project has declared dependencies on one or more of the same libraries, there will be a namespace conflict which will appear as an error while dexing*  
@@ -31,7 +31,7 @@ See the ENETS Merchant Integration Guide at the [ENETS Developer Portal](https:/
 **Q: What is the minumum supported Android SDK Version?**  
 *A: The minSdkVersion is set to 18(Android 4.3/Jellybean)*
 
-## How to exclude dependencies from gradle
+### How to exclude dependencies from gradle
 Assuming we are using `Retrofit` in our project and encountering dex errors with `Okhttp`.  
 We can exclude OkHttp as a gradle dependency and use the version packaged in the ENETS aar by adding the following to our app module build.gradle file.  
 ```groovy
@@ -40,7 +40,7 @@ configurations.all{
 }
 ```
 
-## How to remove a jar from the ENETS SDK aar file
+### How to remove a jar from the ENETS SDK aar file
 Unpack the aar, remove the unwanted class files and then pack the aar(Example below).  
 Assuming we are encountering dex errors with `Guava`, which uses the package `com.google.common`.  
 First, open a terminal window and cd to the containing folder.  
